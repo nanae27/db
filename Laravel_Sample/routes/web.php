@@ -21,8 +21,14 @@ Route::get('/', function () {
 
 // Auth::routes();
 
-Route::get('/login',[DisplayController::class, 'index']);
+// Route::get('/',[DisplayController::class, 'index']);
+
+Route::get('/login',[LoginController::class, 'loginForm'])->name('login');
 Route::get('/singnup',[RegistrationController::class, 'singnupForm'])->name('singnup');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
