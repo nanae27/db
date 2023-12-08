@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HelloController;
-
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,20 +15,12 @@ use App\Http\Controllers\HelloController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('home');
 });
+
 
 
 // Auth::routes();
 
-// Route::get('/',[DisplayController::class, 'index']);
-
-Route::get('/login',[LoginController::class, 'loginForm'])->name('login');
-Route::get('/singnup',[RegistrationController::class, 'singnupForm'])->name('singnup');
-
-
-
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/posts/index', PostsController::class, 'postsIndex')->name('posts.index');
